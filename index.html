@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Love You</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: cursive;
+    }
+    body {
+      background-image: url("https://i.pinimg.com/originals/51/d8/37/51d8374126446d495348b6032202126f.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .container {
+      position: relative;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      box-sizing: border-box;
+      overflow-y: auto;
+      height: 90vh;
+    }
+    h2 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    .heart {
+      position: absolute;
+      width: 100px;
+      height: 60px;
+      background: red;
+      clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 85% 42%, 75% 60%, 50% 100%, 25% 60%, 15% 42%, 15% 25%, 25% 12%, 39% 12%);
+      animation: float 7s infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .heart span {
+      font-size: 14px;
+      color: white;
+    }
+    .big-heart {
+      position: fixed;
+      width: 50vw;
+      height: 30vw;
+      background: red;
+      clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 85% 42%, 75% 60%, 50% 100%, 25% 60%, 15% 42%, 15% 25%, 25% 12%, 39% 12%);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .big-heart span {
+      font-size: 4vw;
+      color: white;
+    }
+    .big-message, .final-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3vw;
+      display: none;
+      z-index: 10;
+      text-align: center;
+    }
+    .final-message {
+      font-size: 2vw;
+    }
+    @keyframes float {
+      0% {
+        bottom: -60px;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 100vh;
+        opacity: 0;
+      }
+    }
+    @media (max-width: 768px) {
+      body {
+        font-size: 0.8em;
+      }
+      .container {
+        padding: 10px;
+        font-size: 0.9em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .heart {
+        width: 70px;
+        height: 42px;
+      }
+      .big-heart {
+        width: 70vw;
+        height: 42vw;
+      }
+      .big-heart span {
+        font-size: 6vw;
+      }
+      .big-message, .final-message {
+        font-size: 4vw;
+      }
+      .final-message {
+        font-size: 3vw;
+      }
+    }
+    @media (max-width: 480px) {
+      body {
+        font-size: 0.7em;
+      }
+      .container {
+        padding: 5px;
+        font-size: 0.8em;
+      }
+      h2 {
+        font-size: 1em;
+      }
+      .heart {
+        width: 50px;
+        height: 30px;
+      }
+      .big-heart {
+        width: 80vw;
+        height: 48vw;
+      }
+      .big-heart span {
+        font-size: 8vw;
+      }
+      .big-message, .final-message {
+        font-size: 5vw;
+      }
+      .final-message {
+        font-size: 4vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="text1"></h2>
+  </div>
+  <div class="big-heart">
+    <span>&hearts;</span>
+  </div>
+  <div class="big-message">I love you, Sadhana...</div>
+  <div class="final-message">Please give me one chance to prove my love.</div>
+  <script>
+    var i = 0;
+    var txt1 = `Hi Sadhana...!
+
+<< Please give me 5 minutes of your time. I saw you for the first time in 7th grade. I got to know about you in 10th grade.
+
+<<  When I was in PG, I was crying to my parents. You were looking at me and laughing, and your laughter made my tears vanish. By seeing your cute smile, lively activities, and your helping nature and character, I fell in love with you for the first time. But I thought it wasn't the right time to love, so I studied hard. I didn't get good result, so I made a pledge to myself to work hard and later express my feelings to you. Every day, I worked harder and harder to achieve my goal...
+
+
+<<  Once I saw you  at the bus stand. You didn't recognize me, but I did. I felt sad.
+
+
+
+
+<< I went to Mysore, worked hard, and started achieving my goals. Once, when I came back to the village, I saw you at the fair. You were wearing an orange top and pants, and your hair was tied to the front. I saw you, but you didn't see me. I was sooo  happy to see you.
+
+
+
+
+
+<<  Now, I want to say something special. You seem extraordinary to me. Your thoughts always resonate in my mind. Everything about you fascinates me.
+
+
+
+
+
+<<  I'm nervous because I haven't said these words to anyone, and I won't say them to anyone else in the future. I love my parents more than anything in this world. Now, you are the only person I love equally with my parents.
+
+
+
+
+
+<<....  <<    I love you, Sadhana... `;
+
+    var normalSpeed = 110;
+    var sentenceEndSpeed = 500;
+    var loveMessage = "I love you, Sadhana...";
+
+    function typeWriter() {
+      if (i < txt1.length) {
+        if (txt1.substr(i, loveMessage.length) === loveMessage) {
+          showBigHeart();
+          return;
+        }
+        if (txt1.charAt(i) === '<') {
+          document.getElementById("text1").innerHTML += '<br>';
+        } else if (txt1.charAt(i) === '>') {
+          document.getElementById("text1").innerHTML = '';
+        } else {
+          document.getElementById("text1").innerHTML += txt1.charAt(i);
+        }
+        var currentChar = txt1.charAt(i);
+        var speed = (currentChar === '.' || currentChar === '!' || currentChar === '?') ? sentenceEndSpeed : normalSpeed;
+        i++;
+        document.querySelector('.container').scrollTop = document.querySelector('.container').scrollHeight;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    function showBigHeart() {
+      document.querySelector('.container').innerHTML = ''; // Clear the container
+      var bigHeart = document.querySelector('.big-heart');
+      var bigMessage = document.querySelector('.big-message');
+      var finalMessage = document.querySelector('.final-message');
+      bigHeart.style.display = 'flex';
+      setTimeout(() => {
+        bigHeart.style.display = 'none';
+        bigMessage.style.display = 'block';
+      }, 2000);
+      setTimeout(() => {
+        bigMessage.style.display = 'none';
+        finalMessage.style.display = 'block';
+      }, 12000); // 10 seconds after the big heart is shown
+    }
+
+    typeWriter();
+
+    function createHeart() {
+      var heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '<span>S</span>';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
